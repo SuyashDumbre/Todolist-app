@@ -8,7 +8,7 @@ namespace Todolist
 {
     public partial class Managetask : System.Web.UI.Page
     {
-        string connStr = @"Data Source=DESKTOP-VQ61BUK\SQLEXPRESS;Initial Catalog=todoapp;Integrated Security=True;";
+        string connStr = @"Data Source=YOUR_SERVER_NAME;Initial Catalog=YOUR_DATABASE;Integrated Security=True;";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -139,7 +139,7 @@ namespace Todolist
             int taskId = Convert.ToInt32(gvTasks.DataKeys[e.RowIndex].Value);
             GridViewRow row = gvTasks.Rows[e.RowIndex];
 
-            // ✅ Title = cell[2], Description = cell[3] after adding Sr No + hidden TaskID
+            
             string title = ((TextBox)row.Cells[2].Controls[0]).Text;
             string description = ((TextBox)row.Cells[3].Controls[0]).Text;
 
@@ -203,7 +203,7 @@ namespace Todolist
                     e.Row.Font.Strikeout = true;
                 }
 
-                // ✅ Priority badge styling
+                
                 Label lblPriority = e.Row.FindControl("lblPriority") as Label;
                 if (lblPriority != null)
                 {
