@@ -19,8 +19,8 @@ namespace Todolist
         {
             string email = txtEmail.Text;
             string password = txtPassword.Text;
-
-            string connection = @"Data Source=DESKTOP-VQ61BUK\SQLEXPRESS;Initial Catalog=todoapp;Integrated Security=True";
+        // Read connection string safely from Web.config
+            string connection = System.Configuration.ConfigurationManager.ConnectionStrings["todoappConnectionString"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(connection))
             {
